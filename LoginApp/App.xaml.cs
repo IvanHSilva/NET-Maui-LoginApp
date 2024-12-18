@@ -9,7 +9,7 @@
             InitializeComponent();
         }
 
-        protected override Window CreateWindow(IActivationState activationState) =>
+        protected override Window CreateWindow(IActivationState? activationState) =>
             new(new AppShell()) {
                 Width = WindowWidth,
                 Height = WindowHeight,
