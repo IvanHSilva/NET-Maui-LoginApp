@@ -10,7 +10,7 @@
         }
 
         protected override Window CreateWindow(IActivationState? activationState) =>
-            new(new AppShell()) {
+            new(new Login()) {
                 Width = WindowWidth,
                 Height = WindowHeight,
                 X = WindowXPos,
