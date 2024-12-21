@@ -9,7 +9,7 @@
         <Border>
             <VerticalStackLayout>
 
-                <Label Text="Você está logado!" FontSize="Large" 
+                <Label Text="Você está logado(a)!" FontSize="Large" 
                        HorizontalTextAlignment="Center" Margin="5"/>
                 <Label x:Name="welcome_label" 
                        HorizontalTextAlignment="Center" Margin="15"/>

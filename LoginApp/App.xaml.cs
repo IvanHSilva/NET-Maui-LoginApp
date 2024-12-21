@@ -1,7 +1,7 @@
 ﻿namespace LoginApp {
     public partial class App : Application {
 
-        string? loggedUser = string.Empty; 
+        bool isLogged = false; 
         
         const int WindowWidth = 400;
         const int WindowHeight = 750;
@@ -11,20 +11,17 @@
         public App() {
             InitializeComponent();
 
+            string? loggedUser = string.Empty;
+
             Task.Run(async () => {
                 loggedUser = await SecureStorage.Default.GetAsync("logged_user");
 
-                if (loggedUser == null) {
-                    Current!.Windows[0].Page = new Login();
-                }
-                else {
-                    Current!.Windows[0].Page = new Protected();
-                }
+                if (loggedUser != null) isLogged = true;
             });
         }
 
         protected override Window CreateWindow(IActivationState? activationState) =>
-            new(loggedUser != null ? new Protected() : new Login())
+            new(isLogged ? new Protected() : new Login())
             {
                 Width = WindowWidth,
                 Height = WindowHeight,
