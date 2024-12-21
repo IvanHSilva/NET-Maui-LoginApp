@@ -19,7 +19,7 @@ public partial class Login : ContentPage {
             if(users.Any(u => newUser.Name == u.Name &&
                 newUser.Password == u.Password)) {
                 
-                await SecureStorage.Default.SetAsync("loggeduser", newUser.Name);
+                await SecureStorage.Default.SetAsync("logged_user", newUser.Name);
                 Application.Current!.Windows[0].Page = new Protected(); 
             } else {
                 throw new Exception("Usuário ou Senha incorretos!");
